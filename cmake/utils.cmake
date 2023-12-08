@@ -19,10 +19,18 @@ function(spdlog_extract_version)
     endif()
     set(ver_patch ${CMAKE_MATCH_1})
 
-    set(SPDLOG_VERSION_MAJOR ${ver_major} PARENT_SCOPE)
-    set(SPDLOG_VERSION_MINOR ${ver_minor} PARENT_SCOPE)
-    set(SPDLOG_VERSION_PATCH ${ver_patch} PARENT_SCOPE)
-    set(SPDLOG_VERSION "${ver_major}.${ver_minor}.${ver_patch}" PARENT_SCOPE)
+    set(SPDLOG_VERSION_MAJOR
+        ${ver_major}
+        PARENT_SCOPE)
+    set(SPDLOG_VERSION_MINOR
+        ${ver_minor}
+        PARENT_SCOPE)
+    set(SPDLOG_VERSION_PATCH
+        ${ver_patch}
+        PARENT_SCOPE)
+    set(SPDLOG_VERSION
+        "${ver_major}.${ver_minor}.${ver_patch}"
+        PARENT_SCOPE)
 endfunction()
 
 # Turn on warnings on the given target
@@ -58,5 +66,10 @@ function(spdlog_enable_sanitizer target_name)
     target_compile_options(${target_name} PRIVATE -fno-sanitize=signed-integer-overflow)
     target_compile_options(${target_name} PRIVATE -fno-sanitize-recover=all)
     target_compile_options(${target_name} PRIVATE -fno-omit-frame-pointer)
-    target_link_libraries(${target_name} PRIVATE -fsanitize=address,undefined -fuse-ld=gold)
+
+    if(APPLE)
+        target_link_libraries(${target_name} PRIVATE -fsanitize=address,undefined -fuse-ld=ld)
+    else()
+        target_link_libraries(${target_name} PRIVATE -fsanitize=address,undefined -fuse-ld=gold)
+    endif()
 endfunction()

@@ -137,7 +137,7 @@ namespace spdlog
     #define SPDLOG_FILENAME_T_INNER(s) L##s
     #define SPDLOG_FILENAME_T(s) SPDLOG_FILENAME_T_INNER(s)
 #else
-    using filename_t = std::string;
+    using filename_t  = std::string;
     #define SPDLOG_FILENAME_T(s) s
 #endif
 
@@ -233,7 +233,7 @@ namespace spdlog
 #if defined(SPDLOG_NO_ATOMIC_LEVELS)
     using level_t = details::null_atomic_int;
 #else
-    using level_t = std::atomic<int>;
+    using level_t          = std::atomic<int>;
 #endif
 
 #define SPDLOG_LEVEL_TRACE 0
@@ -406,7 +406,7 @@ namespace spdlog
 #elif __cpp_lib_format >= 202207L
         template<typename T, typename... Args>
         SPDLOG_CONSTEXPR_FUNC std::basic_string_view<T> to_string_view(
-            std::basic_format_string<T, Args...> fmt) SPDLOG_NOEXCEPT
+                     std::basic_format_string<T, Args...> fmt) SPDLOG_NOEXCEPT
         {
             return fmt.get();
         }

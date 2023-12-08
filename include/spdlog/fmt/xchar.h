@@ -16,7 +16,7 @@
                 #define FMT_HEADER_ONLY
             #endif
         #endif
-        #include <spdlog/fmt/bundled/xchar.h>
+        #include <fmt/xchar.h>
     #else
         #include <fmt/xchar.h>
     #endif

@@ -15,7 +15,7 @@
 #elif defined(SPDLOG_FMT_EXTERNAL)
     #include <fmt/format.h>
 #else
-    #include "spdlog/fmt/bundled/format.h"
+    #include "fmt/format.h"
 #endif
 
 #include "utils.h"

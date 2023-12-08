@@ -61,41 +61,41 @@ if(NOT DEFINED SPDLOG_MASTER_PROJECT)
     endif()
 endif()
 
-option(SPDLOG_BUILD_ALL "Build all artifacts" OFF)
+option(SPDLOG_BUILD_ALL "Build all artifacts" ON)
 
 # build shared option
-option(SPDLOG_BUILD_SHARED "Build shared library" OFF)
+option(SPDLOG_BUILD_SHARED "Build shared library" ON)
 
 # precompiled headers option
-option(SPDLOG_ENABLE_PCH "Build static or shared library using precompiled header to speed up compilation time" OFF)
+option(SPDLOG_ENABLE_PCH "Build static or shared library using precompiled header to speed up compilation time" ON)
 
 # build position independent code
-option(SPDLOG_BUILD_PIC "Build position independent code (-fPIC)" OFF)
+option(SPDLOG_BUILD_PIC "Build position independent code (-fPIC)" ON)
 
 # example options
 option(SPDLOG_BUILD_EXAMPLE "Build example" ${SPDLOG_MASTER_PROJECT})
 option(SPDLOG_BUILD_EXAMPLE_HO "Build header only example" OFF)
 
 # testing options
-option(SPDLOG_BUILD_TESTS "Build tests" OFF)
+option(SPDLOG_BUILD_TESTS "Build tests" ON)
 option(SPDLOG_BUILD_TESTS_HO "Build tests using the header only version" OFF)
 
 # bench options
-option(SPDLOG_BUILD_BENCH "Build benchmarks (Requires https://github.com/google/benchmark.git to be installed)" OFF)
+option(SPDLOG_BUILD_BENCH "Build benchmarks (Requires https://github.com/google/benchmark.git to be installed)" ON)
 
 # sanitizer options
-option(SPDLOG_SANITIZE_ADDRESS "Enable address sanitizer in tests" OFF)
+option(SPDLOG_SANITIZE_ADDRESS "Enable address sanitizer in tests" ON)
 
 # warning options
-option(SPDLOG_BUILD_WARNINGS "Enable compiler warnings" OFF)
+option(SPDLOG_BUILD_WARNINGS "Enable compiler warnings" ON)
 
 # install options
-option(SPDLOG_SYSTEM_INCLUDES "Include as system headers (skip for clang-tidy)." OFF)
+option(SPDLOG_SYSTEM_INCLUDES "Include as system headers (skip for clang-tidy)." ON)
 option(SPDLOG_INSTALL "Generate the install target" ${SPDLOG_MASTER_PROJECT})
 option(SPDLOG_USE_STD_FORMAT "Use std::format instead of fmt library." OFF)
 option(SPDLOG_FMT_EXTERNAL "Use external fmt library instead of bundled" OFF)
 option(SPDLOG_FMT_EXTERNAL_HO "Use external fmt header-only library instead of bundled" OFF)
-option(SPDLOG_NO_EXCEPTIONS "Compile with -fno-exceptions. Call abort() on any spdlog exceptions" OFF)
+option(SPDLOG_NO_EXCEPTIONS "Compile with -fno-exceptions. Call abort() on any spdlog exceptions" ON)
 
 if(SPDLOG_FMT_EXTERNAL AND SPDLOG_FMT_EXTERNAL_HO)
     message(FATAL_ERROR "SPDLOG_FMT_EXTERNAL and SPDLOG_FMT_EXTERNAL_HO are mutually exclusive")
@@ -130,7 +130,7 @@ else()
         CACHE BOOL "non supported option" FORCE)
 endif()
 
-option(SPDLOG_PREVENT_CHILD_FD "Prevent from child processes to inherit log file descriptors" OFF)
+option(SPDLOG_PREVENT_CHILD_FD "Prevent from child processes to inherit log file descriptors" ON)
 option(SPDLOG_NO_THREAD_ID "prevent spdlog from querying the thread id on each log call if thread id is not needed" OFF)
 option(SPDLOG_NO_TLS "prevent spdlog from using thread local storage" OFF)
 option(
@@ -196,8 +196,10 @@ if(SPDLOG_SYSTEM_INCLUDES)
 endif()
 
 target_compile_definitions(spdlog PUBLIC SPDLOG_COMPILED_LIB)
-target_include_directories(spdlog ${SPDLOG_INCLUDES_LEVEL} PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
-                                                                  "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
+target_include_directories(
+    spdlog ${SPDLOG_INCLUDES_LEVEL}
+    PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
+           "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/3rdparty>" "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(spdlog PUBLIC Threads::Threads)
 spdlog_enable_warnings(spdlog)
 
@@ -217,8 +219,10 @@ add_library(spdlog_header_only INTERFACE)
 add_library(spdlog::spdlog_header_only ALIAS spdlog_header_only)
 
 target_include_directories(
-    spdlog_header_only ${SPDLOG_INCLUDES_LEVEL} INTERFACE "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
-                                                          "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
+    spdlog_header_only ${SPDLOG_INCLUDES_LEVEL}
+    INTERFACE "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/include>"
+              "$<BUILD_INTERFACE:${CMAKE_CURRENT_LIST_DIR}/3rdparty>"
+              "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
 target_link_libraries(spdlog_header_only INTERFACE Threads::Threads)
 
 # ---------------------------------------------------------------------------------------

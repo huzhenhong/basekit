@@ -16,7 +16,7 @@
                 #define FMT_HEADER_ONLY
             #endif
         #endif
-        #include <spdlog/fmt/bundled/compile.h>
+        #include <fmt/compile.h>
     #else
         #include <fmt/compile.h>
     #endif
