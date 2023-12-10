@@ -10,7 +10,7 @@
 // http://mongocxx.org/mongocxx-v3/installation/
 //
 
-#include "spdlog/common.h"
+#include "utils/common.h"
 #include "spdlog/details/log_msg.h"
 #include "spdlog/sinks/base_sink.h"
 #include <spdlog/details/synchronous_factory.h>
@@ -93,7 +93,7 @@ namespace spdlog
             std::unique_ptr<mongocxx::client>   client_ = nullptr;
         };
 
-#include "spdlog/details/null_mutex.h"
+#include "utils/null_mutex.h"
 #include <mutex>
         using mongo_sink_mt = mongo_sink<std::mutex>;
         using mongo_sink_st = mongo_sink<spdlog::details::null_mutex>;

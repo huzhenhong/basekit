@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <spdlog/details/circular_q.h>
+#include <utils/circular_q.h>
 #include <spdlog/details/log_msg_buffer.h>
 
 #include <atomic>

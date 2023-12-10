@@ -33,7 +33,7 @@ Windows Registry Editor Version 5.00
 
 #pragma once
 
-#include <spdlog/details/null_mutex.h>
+#include <utils/null_mutex.h>
 #include <spdlog/sinks/base_sink.h>
 
 #include <spdlog/details/windows_include.h>
@@ -60,7 +60,7 @@ namespace spdlog
 
                     SPDLOG_CONSTEXPR local_alloc_t() SPDLOG_NOEXCEPT : hlocal_(nullptr) {}
 
-                    local_alloc_t(local_alloc_t const&)            = delete;
+                    local_alloc_t(local_alloc_t const&) = delete;
                     local_alloc_t& operator=(local_alloc_t const&) = delete;
 
                     ~local_alloc_t() SPDLOG_NOEXCEPT

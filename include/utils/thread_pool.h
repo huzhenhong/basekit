@@ -4,8 +4,8 @@
 #pragma once
 
 #include <spdlog/details/log_msg_buffer.h>
-#include <spdlog/details/mpmc_blocking_q.h>
-#include <spdlog/details/os.h>
+#include <utils/mpmc_blocking_q.h>
+#include <utils/os.h>
 
 #include <chrono>
 #include <functional>
@@ -59,7 +59,7 @@ namespace spdlog
                 return *this;
             }
 #else  // (_MSC_VER) && _MSC_VER <= 1800
-            async_msg(async_msg&&)            = default;
+            async_msg(async_msg&&) = default;
             async_msg& operator=(async_msg&&) = default;
 #endif
 
@@ -100,7 +100,7 @@ namespace spdlog
             // message all threads to terminate gracefully and join them
             ~thread_pool();
 
-            thread_pool(const thread_pool&)       = delete;
+            thread_pool(const thread_pool&) = delete;
             thread_pool& operator=(thread_pool&&) = delete;
 
             void         post_log(async_logger_ptr&&      worker_ptr,

@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/details/os.h>
+#include <utils/null_mutex.h>
+#include <utils/os.h>
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/base_sink.h>
 
@@ -41,7 +41,7 @@ namespace spdlog
 
             ~systemd_sink() override {}
 
-            systemd_sink(const systemd_sink&)            = delete;
+            systemd_sink(const systemd_sink&) = delete;
             systemd_sink& operator=(const systemd_sink&) = delete;
 
           protected:

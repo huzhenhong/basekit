@@ -6,8 +6,8 @@
 #include <array>
 #include <memory>
 #include <mutex>
-#include <spdlog/details/console_globals.h>
-#include <spdlog/details/null_mutex.h>
+#include <utils/console_globals.h>
+#include <utils/null_mutex.h>
 #include <spdlog/sinks/sink.h>
 #include <string>
 
@@ -35,7 +35,7 @@ namespace spdlog
             ansicolor_sink(ansicolor_sink&& other)      = delete;
 
             ansicolor_sink&     operator=(const ansicolor_sink& other) = delete;
-            ansicolor_sink&     operator=(ansicolor_sink&& other)      = delete;
+            ansicolor_sink&     operator=(ansicolor_sink&& other) = delete;
 
             void                set_color(level::level_enum color_level, string_view_t color);
             void                set_color_mode(color_mode mode);

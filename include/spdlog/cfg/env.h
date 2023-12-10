@@ -3,7 +3,7 @@
 
 #pragma once
 #include <spdlog/cfg/helpers.h>
-#include <spdlog/details/os.h>
+#include <utils/os.h>
 #include <spdlog/details/registry.h>
 
 //

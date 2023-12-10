@@ -16,7 +16,7 @@
 
 #include <spdlog/async_logger.h>
 #include <spdlog/details/registry.h>
-#include <spdlog/details/thread_pool.h>
+#include <utils/thread_pool.h>
 
 #include <functional>
 #include <memory>

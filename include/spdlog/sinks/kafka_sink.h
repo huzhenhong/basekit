@@ -12,11 +12,11 @@
 
 #include "spdlog/async.h"
 #include "spdlog/details/log_msg.h"
-#include "spdlog/details/null_mutex.h"
+#include "utils/null_mutex.h"
 #include "spdlog/details/synchronous_factory.h"
 #include "spdlog/sinks/base_sink.h"
 #include <mutex>
-#include <spdlog/common.h>
+#include <utils/common.h>
 
 // kafka header
 #include <librdkafka/rdkafkacpp.h>

@@ -3,8 +3,8 @@
 
 #pragma once
 
-#include <spdlog/details/file_helper.h>
-#include <spdlog/details/null_mutex.h>
+#include <utils/file_helper.h>
+#include <utils/null_mutex.h>
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/base_sink.h>
 

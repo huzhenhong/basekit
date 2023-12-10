@@ -12,7 +12,7 @@
 // QObject, and then use a standard signal/slot.
 //
 
-#include "spdlog/common.h"
+#include "utils/common.h"
 #include "spdlog/details/log_msg.h"
 #include "spdlog/details/synchronous_factory.h"
 #include "spdlog/sinks/base_sink.h"
@@ -260,7 +260,7 @@ namespace spdlog
             std::array<QTextCharFormat, level::n_levels> colors_;
         };
 
-#include "spdlog/details/null_mutex.h"
+#include "utils/null_mutex.h"
 #include <mutex>
 
         using qt_sink_mt       = qt_sink<std::mutex>;

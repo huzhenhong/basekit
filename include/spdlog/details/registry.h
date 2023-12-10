@@ -8,8 +8,8 @@
 // If user requests a non existing logger, nullptr will be returned
 // This class is thread safe
 
-#include <spdlog/common.h>
-#include <spdlog/details/periodic_worker.h>
+#include <utils/common.h>
+#include <utils/periodic_worker.h>
 
 #include <chrono>
 #include <functional>
@@ -29,8 +29,8 @@ namespace spdlog
         class SPDLOG_API registry
         {
           public:
-            using log_levels                                        = std::unordered_map<std::string, level::level_enum>;
-            registry(const registry&)                               = delete;
+            using log_levels                     = std::unordered_map<std::string, level::level_enum>;
+            registry(const registry&)            = delete;
             registry&                    operator=(const registry&) = delete;
 
             void                         register_logger(std::shared_ptr<logger> new_logger);

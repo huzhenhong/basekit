@@ -9,7 +9,7 @@
 // implementers..
 //
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <spdlog/details/log_msg.h>
 #include <spdlog/sinks/sink.h>
 
@@ -29,7 +29,7 @@ namespace spdlog
             base_sink(base_sink&&)      = delete;
 
             base_sink& operator=(const base_sink&) = delete;
-            base_sink& operator=(base_sink&&)      = delete;
+            base_sink& operator=(base_sink&&) = delete;
 
             void       log(const details::log_msg& msg) final;
             void       flush() final;

@@ -5,9 +5,9 @@
 
 #ifdef __ANDROID__
 
-    #include <spdlog/details/fmt_helper.h>
-    #include <spdlog/details/null_mutex.h>
-    #include <spdlog/details/os.h>
+    #include <utils/fmt_helper.h>
+    #include <utils/null_mutex.h>
+    #include <utils/os.h>
     #include <spdlog/details/synchronous_factory.h>
     #include <spdlog/sinks/base_sink.h>
 

@@ -8,7 +8,7 @@
 #endif
 
 #include <memory>
-#include <spdlog/details/console_globals.h>
+#include <utils/console_globals.h>
 #include <spdlog/pattern_formatter.h>
 
 #ifdef _WIN32

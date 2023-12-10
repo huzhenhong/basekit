@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <spdlog/details/null_mutex.h>
+#include <utils/null_mutex.h>
 #include <spdlog/sinks/base_sink.h>
 
 #include <mutex>
@@ -22,7 +22,7 @@ namespace spdlog
                 , force_flush_(force_flush)
             {
             }
-            ostream_sink(const ostream_sink&)            = delete;
+            ostream_sink(const ostream_sink&) = delete;
             ostream_sink& operator=(const ostream_sink&) = delete;
 
           protected:

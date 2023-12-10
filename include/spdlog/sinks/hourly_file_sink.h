@@ -3,11 +3,11 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-#include <spdlog/details/circular_q.h>
-#include <spdlog/details/file_helper.h>
-#include <spdlog/details/null_mutex.h>
-#include <spdlog/details/os.h>
+#include <utils/common.h>
+#include <utils/circular_q.h>
+#include <utils/file_helper.h>
+#include <utils/null_mutex.h>
+#include <utils/os.h>
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/fmt/fmt.h>
 #include <spdlog/sinks/base_sink.h>

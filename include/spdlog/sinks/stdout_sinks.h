@@ -4,7 +4,7 @@
 #pragma once
 
 #include <cstdio>
-#include <spdlog/details/console_globals.h>
+#include <utils/console_globals.h>
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/sinks/sink.h>
 
@@ -30,7 +30,7 @@ namespace spdlog
             stdout_sink_base(stdout_sink_base&& other)      = delete;
 
             stdout_sink_base& operator=(const stdout_sink_base& other) = delete;
-            stdout_sink_base& operator=(stdout_sink_base&& other)      = delete;
+            stdout_sink_base& operator=(stdout_sink_base&& other) = delete;
 
             void              log(const details::log_msg& msg) override;
             void              flush() override;

@@ -9,7 +9,7 @@
 
 #pragma once
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <spdlog/details/registry.h>
 #include <spdlog/details/synchronous_factory.h>
 #include <spdlog/logger.h>

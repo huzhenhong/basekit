@@ -5,9 +5,9 @@
 
 #if defined(_WIN32)
 
-    #include <spdlog/details/null_mutex.h>
+    #include <utils/null_mutex.h>
     #if defined(SPDLOG_WCHAR_TO_UTF8_SUPPORT)
-        #include <spdlog/details/os.h>
+        #include <utils/os.h>
     #endif
     #include <spdlog/sinks/base_sink.h>
 

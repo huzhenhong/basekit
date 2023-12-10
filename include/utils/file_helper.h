@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <tuple>
 
 namespace spdlog
@@ -21,7 +21,7 @@ namespace spdlog
             file_helper() = default;
             explicit file_helper(const file_event_handlers& event_handlers);
 
-            file_helper(const file_helper&)            = delete;
+            file_helper(const file_helper&) = delete;
             file_helper& operator=(const file_helper&) = delete;
             ~file_helper();
 

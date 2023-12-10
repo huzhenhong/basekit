@@ -7,10 +7,10 @@
     #include <spdlog/sinks/rotating_file_sink.h>
 #endif
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 
-#include <spdlog/details/file_helper.h>
-#include <spdlog/details/null_mutex.h>
+#include <utils/file_helper.h>
+#include <utils/null_mutex.h>
 #include <spdlog/fmt/fmt.h>
 
 #include <cerrno>

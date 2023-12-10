@@ -10,7 +10,7 @@
 #include <spdlog/details/windows_include.h>
 #include <wincon.h>
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <spdlog/pattern_formatter.h>
 
 namespace spdlog

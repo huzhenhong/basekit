@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <spdlog/details/log_msg.h>
-#include <spdlog/details/os.h>
+#include <utils/os.h>
 #include <spdlog/formatter.h>
 
 #include <chrono>
@@ -94,7 +94,7 @@ namespace spdlog
         explicit pattern_formatter(pattern_time_type time_type = pattern_time_type::local,
                                    std::string       eol       = spdlog::details::os::default_eol);
 
-        pattern_formatter(const pattern_formatter& other)                    = delete;
+        pattern_formatter(const pattern_formatter& other) = delete;
         pattern_formatter&         operator=(const pattern_formatter& other) = delete;
 
         std::unique_ptr<formatter> clone() const override;

@@ -8,8 +8,8 @@
 #endif
 
 // tcp client helper
-#include <spdlog/common.h>
-#include <spdlog/details/os.h>
+#include <utils/common.h>
+#include <utils/os.h>
 
 #include <arpa/inet.h>
 #include <netdb.h>
@@ -81,7 +81,7 @@ namespace spdlog
 #if defined(SOCK_CLOEXEC)
                     const int flags = SOCK_CLOEXEC;
 #else
-                    const int flags = 0;
+                    const int flags      = 0;
 #endif
                     socket_ = ::socket(rp->ai_family, rp->ai_socktype | flags, rp->ai_protocol);
                     if (socket_ == -1)

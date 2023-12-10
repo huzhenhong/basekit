@@ -5,7 +5,7 @@
 
 #include "base_sink.h"
 #include <spdlog/details/log_msg.h>
-#include <spdlog/details/null_mutex.h>
+#include <utils/null_mutex.h>
 #include <spdlog/pattern_formatter.h>
 
 #include <algorithm>
@@ -31,7 +31,7 @@ namespace spdlog
             {
             }
 
-            dist_sink(const dist_sink&)            = delete;
+            dist_sink(const dist_sink&) = delete;
             dist_sink& operator=(const dist_sink&) = delete;
 
             void       add_sink(std::shared_ptr<sink> sub_sink)

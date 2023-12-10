@@ -7,8 +7,8 @@
     #include <spdlog/details/registry.h>
 #endif
 
-#include <spdlog/common.h>
-#include <spdlog/details/periodic_worker.h>
+#include <utils/common.h>
+#include <utils/periodic_worker.h>
 #include <spdlog/logger.h>
 #include <spdlog/pattern_formatter.h>
 

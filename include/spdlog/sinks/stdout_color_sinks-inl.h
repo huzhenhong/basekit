@@ -7,7 +7,7 @@
     #include <spdlog/sinks/stdout_color_sinks.h>
 #endif
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <spdlog/logger.h>
 
 namespace spdlog

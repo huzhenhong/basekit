@@ -7,7 +7,7 @@
     #include <spdlog/cfg/helpers.h>
 #endif
 
-#include <spdlog/details/os.h>
+#include <utils/os.h>
 #include <spdlog/details/registry.h>
 #include <spdlog/spdlog.h>
 

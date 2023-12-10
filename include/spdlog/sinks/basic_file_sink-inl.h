@@ -7,8 +7,8 @@
     #include <spdlog/sinks/basic_file_sink.h>
 #endif
 
-#include <spdlog/common.h>
-#include <spdlog/details/os.h>
+#include <utils/common.h>
+#include <utils/os.h>
 
 namespace spdlog
 {

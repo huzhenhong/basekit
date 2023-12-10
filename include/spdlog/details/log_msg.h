@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <string>
 
 namespace spdlog
@@ -20,7 +20,7 @@ namespace spdlog
                     string_view_t         msg);
             log_msg(source_loc loc, string_view_t logger_name, level::level_enum lvl, string_view_t msg);
             log_msg(string_view_t logger_name, level::level_enum lvl, string_view_t msg);
-            log_msg(const log_msg& other)                         = default;
+            log_msg(const log_msg& other) = default;
             log_msg&              operator=(const log_msg& other) = default;
 
             string_view_t         logger_name;

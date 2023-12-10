@@ -14,7 +14,7 @@
 // The use of private formatter per sink provides the opportunity to cache some
 // formatted data, and support for different format per sink.
 
-#include <spdlog/common.h>
+#include <utils/common.h>
 #include <spdlog/details/backtracer.h>
 #include <spdlog/details/log_msg.h>
 
@@ -22,7 +22,7 @@
     #ifndef _WIN32
         #error SPDLOG_WCHAR_TO_UTF8_SUPPORT only supported on windows
     #endif
-    #include <spdlog/details/os.h>
+    #include <utils/os.h>
 #endif
 
 #include <vector>

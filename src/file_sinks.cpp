@@ -5,8 +5,8 @@
     #error Please define SPDLOG_COMPILED_LIB to compile this file.
 #endif
 
-#include <spdlog/details/file_helper-inl.h>
-#include <spdlog/details/null_mutex.h>
+#include <utils/file_helper-inl.h>
+#include <utils/null_mutex.h>
 #include <spdlog/sinks/base_sink-inl.h>
 #include <spdlog/sinks/basic_file_sink-inl.h>
 

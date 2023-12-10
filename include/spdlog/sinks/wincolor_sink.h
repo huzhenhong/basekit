@@ -3,9 +3,9 @@
 
 #pragma once
 
-#include <spdlog/common.h>
-#include <spdlog/details/console_globals.h>
-#include <spdlog/details/null_mutex.h>
+#include <utils/common.h>
+#include <utils/console_globals.h>
+#include <utils/null_mutex.h>
 #include <spdlog/sinks/sink.h>
 
 #include <array>
@@ -29,7 +29,7 @@ namespace spdlog
             wincolor_sink(void* out_handle, color_mode mode);
             ~wincolor_sink() override;
 
-            wincolor_sink(const wincolor_sink& other)            = delete;
+            wincolor_sink(const wincolor_sink& other) = delete;
             wincolor_sink& operator=(const wincolor_sink& other) = delete;
 
             // change the color for the given level

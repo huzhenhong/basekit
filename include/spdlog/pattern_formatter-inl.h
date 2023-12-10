@@ -7,9 +7,9 @@
     #include <spdlog/pattern_formatter.h>
 #endif
 
-#include <spdlog/details/fmt_helper.h>
+#include <utils/fmt_helper.h>
 #include <spdlog/details/log_msg.h>
-#include <spdlog/details/os.h>
+#include <utils/os.h>
 #include <spdlog/fmt/fmt.h>
 #include <spdlog/formatter.h>
 
@@ -631,8 +631,8 @@ namespace spdlog
             {
             }
 
-            z_formatter()                              = default;
-            z_formatter(const z_formatter&)            = delete;
+            z_formatter()                   = default;
+            z_formatter(const z_formatter&) = delete;
             z_formatter& operator=(const z_formatter&) = delete;
 
             void         format(const details::log_msg& msg, const std::tm& tm_time, memory_buf_t& dest) override
