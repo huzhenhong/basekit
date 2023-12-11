@@ -17,9 +17,16 @@ if(NOT benchmark_FOUND)
     include(FetchContent)
 
     # disable tests
-    set(BENCHMARK_ENABLE_TESTING OFF CACHE INTERNAL "")
+    set(BENCHMARK_ENABLE_TESTING
+        OFF
+        CACHE INTERNAL "")
     # Do not build and run googlebenchmark tests
-    FetchContent_Declare(googlebenchmark GIT_REPOSITORY https://github.com/google/benchmark.git GIT_TAG v1.6.0)
+    FetchContent_Declare(
+        googlebenchmark
+        GIT_REPOSITORY https://github.com/google/benchmark.git
+        GIT_TAG v1.6.0
+        SOURCE_DIR ${CMAKE_SOURCE_DIR}/ext/googlebenchmark)
+
     FetchContent_MakeAvailable(googlebenchmark)
 endif()
 
