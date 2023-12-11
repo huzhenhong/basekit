@@ -61,7 +61,7 @@ if(NOT DEFINED SPDLOG_MASTER_PROJECT)
     endif()
 endif()
 
-option(SPDLOG_BUILD_ALL "Build all artifacts" ON)
+option(SPDLOG_BUILD_ALL "Build all artifacts" ${SPDLOG_MASTER_PROJECT})
 
 # build shared option
 option(SPDLOG_BUILD_SHARED "Build shared library" ON)
@@ -74,20 +74,21 @@ option(SPDLOG_BUILD_PIC "Build position independent code (-fPIC)" ON)
 
 # example options
 option(SPDLOG_BUILD_EXAMPLE "Build example" ${SPDLOG_MASTER_PROJECT})
-option(SPDLOG_BUILD_EXAMPLE_HO "Build header only example" OFF)
+option(SPDLOG_BUILD_EXAMPLE_HO "Build header only example" ${SPDLOG_MASTER_PROJECT})
 
 # testing options
-option(SPDLOG_BUILD_TESTS "Build tests" ON)
-option(SPDLOG_BUILD_TESTS_HO "Build tests using the header only version" OFF)
+option(SPDLOG_BUILD_TESTS "Build tests" ${SPDLOG_MASTER_PROJECT})
+option(SPDLOG_BUILD_TESTS_HO "Build tests using the header only version" ${SPDLOG_MASTER_PROJECT})
 
 # bench options
-option(SPDLOG_BUILD_BENCH "Build benchmarks (Requires https://github.com/google/benchmark.git to be installed)" ON)
+option(SPDLOG_BUILD_BENCH "Build benchmarks (Requires https://github.com/google/benchmark.git to be installed)"
+       ${SPDLOG_MASTER_PROJECT})
 
 # sanitizer options
-option(SPDLOG_SANITIZE_ADDRESS "Enable address sanitizer in tests" ON)
+option(SPDLOG_SANITIZE_ADDRESS "Enable address sanitizer in tests" ${SPDLOG_MASTER_PROJECT})
 
 # warning options
-option(SPDLOG_BUILD_WARNINGS "Enable compiler warnings" ON)
+option(SPDLOG_BUILD_WARNINGS "Enable compiler warnings" ${SPDLOG_MASTER_PROJECT})
 
 # install options
 option(SPDLOG_SYSTEM_INCLUDES "Include as system headers (skip for clang-tidy)." ON)
