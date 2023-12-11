@@ -76,17 +76,17 @@ namespace spdlog
         namespace os
         {
 
-            SPDLOG_INLINE spdlog::log_clock::time_point now() SPDLOG_NOEXCEPT
+            SPDLOG_INLINE std::chrono::system_clock::time_point now() SPDLOG_NOEXCEPT
             {
 #if defined __linux__ && defined SPDLOG_CLOCK_COARSE
                 timespec ts;
                 ::clock_gettime(CLOCK_REALTIME_COARSE, &ts);
-                return std::chrono::time_point<log_clock, typename log_clock::duration>(
-                    std::chrono::duration_cast<typename log_clock::duration>(
+                return std::chrono::time_point<std::chrono::system_clock, typename std::chrono::system_clock::duration>(
+                    std::chrono::duration_cast<typename std::chrono::system_clock::duration>(
                         std::chrono::seconds(ts.tv_sec) + std::chrono::nanoseconds(ts.tv_nsec)));
 
 #else
-                return log_clock::now();
+                return std::chrono::system_clock::now();
 #endif
             }
             SPDLOG_INLINE std::tm localtime(const std::time_t& time_tt) SPDLOG_NOEXCEPT

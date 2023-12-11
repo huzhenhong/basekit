@@ -5,7 +5,7 @@
     #error Please define SPDLOG_COMPILED_LIB to compile this file.
 #endif
 
-#include <utils/common-inl.h>
+#include <spdlog/common-inl.h>
 #include <spdlog/details/backtracer-inl.h>
 #include <spdlog/details/log_msg-inl.h>
 #include <spdlog/details/log_msg_buffer-inl.h>

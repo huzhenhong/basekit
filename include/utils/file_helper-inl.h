@@ -7,7 +7,7 @@
     #include <utils/file_helper.h>
 #endif
 
-#include <utils/common.h>
+#include <utils/common-inl.h>
 #include <utils/os.h>
 
 #include <cerrno>

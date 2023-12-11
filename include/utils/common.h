@@ -124,12 +124,12 @@
 namespace spdlog
 {
 
-    class formatter;
+    // class formatter;
 
-    namespace sinks
-    {
-        class sink;
-    }
+    // namespace sinks
+    // {
+    //     class sink;
+    // }
 
 #if defined(_WIN32) && defined(SPDLOG_WCHAR_FILENAMES)
     using filename_t = std::wstring;
@@ -141,10 +141,10 @@ namespace spdlog
     #define SPDLOG_FILENAME_T(s) s
 #endif
 
-    using log_clock       = std::chrono::system_clock;
-    using sink_ptr        = std::shared_ptr<sinks::sink>;
-    using sinks_init_list = std::initializer_list<sink_ptr>;
-    using err_handler     = std::function<void(const std::string& err_msg)>;
+    // using log_clock       = std::chrono::system_clock;
+    // using sink_ptr        = std::shared_ptr<sinks::sink>;
+    // using sinks_init_list = std::initializer_list<sink_ptr>;
+    // using err_handler     = std::function<void(const std::string& err_msg)>;
 #ifdef SPDLOG_USE_STD_FORMAT
     namespace fmt_lib = std;
 
@@ -230,89 +230,89 @@ namespace spdlog
     {
     };
 
-#if defined(SPDLOG_NO_ATOMIC_LEVELS)
-    using level_t = details::null_atomic_int;
-#else
-    using level_t          = std::atomic<int>;
-#endif
+    // #if defined(SPDLOG_NO_ATOMIC_LEVELS)
+    //     using level_t = details::null_atomic_int;
+    // #else
+    //     using level_t          = std::atomic<int>;
+    // #endif
 
-#define SPDLOG_LEVEL_TRACE 0
-#define SPDLOG_LEVEL_DEBUG 1
-#define SPDLOG_LEVEL_INFO 2
-#define SPDLOG_LEVEL_WARN 3
-#define SPDLOG_LEVEL_ERROR 4
-#define SPDLOG_LEVEL_CRITICAL 5
-#define SPDLOG_LEVEL_OFF 6
+    // #define SPDLOG_LEVEL_TRACE 0
+    // #define SPDLOG_LEVEL_DEBUG 1
+    // #define SPDLOG_LEVEL_INFO 2
+    // #define SPDLOG_LEVEL_WARN 3
+    // #define SPDLOG_LEVEL_ERROR 4
+    // #define SPDLOG_LEVEL_CRITICAL 5
+    // #define SPDLOG_LEVEL_OFF 6
 
-#if !defined(SPDLOG_ACTIVE_LEVEL)
-    #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_INFO
-#endif
+    // #if !defined(SPDLOG_ACTIVE_LEVEL)
+    //     #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_INFO
+    // #endif
 
     // Log level enum
-    namespace level
-    {
-        enum level_enum : int
-        {
-            trace    = SPDLOG_LEVEL_TRACE,
-            debug    = SPDLOG_LEVEL_DEBUG,
-            info     = SPDLOG_LEVEL_INFO,
-            warn     = SPDLOG_LEVEL_WARN,
-            err      = SPDLOG_LEVEL_ERROR,
-            critical = SPDLOG_LEVEL_CRITICAL,
-            off      = SPDLOG_LEVEL_OFF,
-            n_levels
-        };
+    //     namespace level
+    //     {
+    //         enum level_enum : int
+    //         {
+    //             trace    = SPDLOG_LEVEL_TRACE,
+    //             debug    = SPDLOG_LEVEL_DEBUG,
+    //             info     = SPDLOG_LEVEL_INFO,
+    //             warn     = SPDLOG_LEVEL_WARN,
+    //             err      = SPDLOG_LEVEL_ERROR,
+    //             critical = SPDLOG_LEVEL_CRITICAL,
+    //             off      = SPDLOG_LEVEL_OFF,
+    //             n_levels
+    //         };
 
-#define SPDLOG_LEVEL_NAME_TRACE spdlog::string_view_t("trace", 5)
-#define SPDLOG_LEVEL_NAME_DEBUG spdlog::string_view_t("debug", 5)
-#define SPDLOG_LEVEL_NAME_INFO spdlog::string_view_t("info", 4)
-#define SPDLOG_LEVEL_NAME_WARNING spdlog::string_view_t("warning", 7)
-#define SPDLOG_LEVEL_NAME_ERROR spdlog::string_view_t("error", 5)
-#define SPDLOG_LEVEL_NAME_CRITICAL spdlog::string_view_t("critical", 8)
-#define SPDLOG_LEVEL_NAME_OFF spdlog::string_view_t("off", 3)
+    // #define SPDLOG_LEVEL_NAME_TRACE spdlog::string_view_t("trace", 5)
+    // #define SPDLOG_LEVEL_NAME_DEBUG spdlog::string_view_t("debug", 5)
+    // #define SPDLOG_LEVEL_NAME_INFO spdlog::string_view_t("info", 4)
+    // #define SPDLOG_LEVEL_NAME_WARNING spdlog::string_view_t("warning", 7)
+    // #define SPDLOG_LEVEL_NAME_ERROR spdlog::string_view_t("error", 5)
+    // #define SPDLOG_LEVEL_NAME_CRITICAL spdlog::string_view_t("critical", 8)
+    // #define SPDLOG_LEVEL_NAME_OFF spdlog::string_view_t("off", 3)
 
-#if !defined(SPDLOG_LEVEL_NAMES)
-    #define SPDLOG_LEVEL_NAMES                                                                  \
-        {                                                                                       \
-            SPDLOG_LEVEL_NAME_TRACE, SPDLOG_LEVEL_NAME_DEBUG, SPDLOG_LEVEL_NAME_INFO,           \
-                SPDLOG_LEVEL_NAME_WARNING, SPDLOG_LEVEL_NAME_ERROR, SPDLOG_LEVEL_NAME_CRITICAL, \
-                SPDLOG_LEVEL_NAME_OFF                                                           \
-        }
-#endif
+    // #if !defined(SPDLOG_LEVEL_NAMES)
+    //     #define SPDLOG_LEVEL_NAMES                                                                  \
+//         {                                                                                       \
+//             SPDLOG_LEVEL_NAME_TRACE, SPDLOG_LEVEL_NAME_DEBUG, SPDLOG_LEVEL_NAME_INFO,           \
+//                 SPDLOG_LEVEL_NAME_WARNING, SPDLOG_LEVEL_NAME_ERROR, SPDLOG_LEVEL_NAME_CRITICAL, \
+//                 SPDLOG_LEVEL_NAME_OFF                                                           \
+//         }
+    // #endif
 
-#if !defined(SPDLOG_SHORT_LEVEL_NAMES)
+    // #if !defined(SPDLOG_SHORT_LEVEL_NAMES)
 
-    #define SPDLOG_SHORT_LEVEL_NAMES          \
-        {                                     \
-            "T", "D", "I", "W", "E", "C", "O" \
-        }
-#endif
+    //     #define SPDLOG_SHORT_LEVEL_NAMES          \
+//         {                                     \
+//             "T", "D", "I", "W", "E", "C", "O" \
+//         }
+    // #endif
 
-        SPDLOG_API const string_view_t& to_string_view(spdlog::level::level_enum l) SPDLOG_NOEXCEPT;
-        SPDLOG_API const char*          to_short_c_str(spdlog::level::level_enum l) SPDLOG_NOEXCEPT;
-        SPDLOG_API spdlog::level::level_enum from_str(const std::string& name) SPDLOG_NOEXCEPT;
+    //         SPDLOG_API const string_view_t& to_string_view(spdlog::level::level_enum l) SPDLOG_NOEXCEPT;
+    //         SPDLOG_API const char*          to_short_c_str(spdlog::level::level_enum l) SPDLOG_NOEXCEPT;
+    //         SPDLOG_API spdlog::level::level_enum from_str(const std::string& name) SPDLOG_NOEXCEPT;
 
-    }  // namespace level
+    //     }  // namespace level
 
     //
     // Color mode used by sinks with color support.
     //
-    enum class color_mode
-    {
-        always,
-        automatic,
-        never
-    };
+    // enum class color_mode
+    // {
+    //     always,
+    //     automatic,
+    //     never
+    // };
 
     //
     // Pattern time - specific time getting to use for pattern_formatter.
     // local time by default
     //
-    enum class pattern_time_type
-    {
-        local,  // log localtime
-        utc     // log utc
-    };
+    // enum class pattern_time_type
+    // {
+    //     local,  // log localtime
+    //     utc     // log utc
+    // };
 
     //
     // Log exception
@@ -331,24 +331,24 @@ namespace spdlog
     [[noreturn]] SPDLOG_API void throw_spdlog_ex(const std::string& msg, int last_errno);
     [[noreturn]] SPDLOG_API void throw_spdlog_ex(std::string msg);
 
-    struct source_loc
-    {
-        SPDLOG_CONSTEXPR source_loc() = default;
-        SPDLOG_CONSTEXPR source_loc(const char* filename_in, int line_in, const char* funcname_in)
-            : filename{filename_in}
-            , line{line_in}
-            , funcname{funcname_in}
-        {
-        }
+    // struct source_loc
+    // {
+    //     SPDLOG_CONSTEXPR source_loc() = default;
+    //     SPDLOG_CONSTEXPR source_loc(const char* filename_in, int line_in, const char* funcname_in)
+    //         : filename{filename_in}
+    //         , line{line_in}
+    //         , funcname{funcname_in}
+    //     {
+    //     }
 
-        SPDLOG_CONSTEXPR bool empty() const SPDLOG_NOEXCEPT
-        {
-            return line == 0;
-        }
-        const char* filename{nullptr};
-        int         line{0};
-        const char* funcname{nullptr};
-    };
+    //     SPDLOG_CONSTEXPR bool empty() const SPDLOG_NOEXCEPT
+    //     {
+    //         return line == 0;
+    //     }
+    //     const char* filename{nullptr};
+    //     int         line{0};
+    //     const char* funcname{nullptr};
+    // };
 
     struct file_event_handlers
     {
@@ -406,7 +406,7 @@ namespace spdlog
 #elif __cpp_lib_format >= 202207L
         template<typename T, typename... Args>
         SPDLOG_CONSTEXPR_FUNC std::basic_string_view<T> to_string_view(
-                     std::basic_format_string<T, Args...> fmt) SPDLOG_NOEXCEPT
+            std::basic_format_string<T, Args...> fmt) SPDLOG_NOEXCEPT
         {
             return fmt.get();
         }
